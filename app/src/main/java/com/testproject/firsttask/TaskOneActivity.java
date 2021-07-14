@@ -65,18 +65,11 @@ public class TaskOneActivity extends AppCompatActivity implements CallBackClick 
 
     @Override
     public void buttonClick(GridDataModel gridDataModel) {
-        /*gridAdapter = new GridAdapter(context, gridDataModelList, callBackClick);
-        recyclerView.setAdapter(gridAdapter);*/
         AlertDialog.Builder alert = new AlertDialog.Builder(this)
                 .setTitle(R.string.app_name)
                 .setMessage("You won the game")
                 .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
+                .setPositiveButton("OK", (dialogInterface, i) -> dialogInterface.dismiss());
         alert.show();
     }
 }
