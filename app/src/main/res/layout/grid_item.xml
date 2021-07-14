@@ -5,7 +5,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:clickable="false"
-        android:id="@+id/color_view"
+        android:id="@+id/color_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@android:color/white" />

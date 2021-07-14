@@ -11,6 +11,7 @@ public class TaskOneViewModel extends BaseObservable {
     GridDataModel gridDataModel;
     @Bindable
     String searchValue;
+    @Bindable
     int gridNumber;
 
     public String getSearchValue() {
@@ -22,14 +23,24 @@ public class TaskOneViewModel extends BaseObservable {
         notifyPropertyChanged(BR.searchValue);
     }
 
+    public int getGridNumber() {
+        return gridNumber;
+    }
+
+    public void setGridNumber(int gridNumber) {
+        this.gridNumber = gridNumber;
+        notifyPropertyChanged(BR.gridNumber);
+    }
+
     public void clickButton() {
         if (searchValue != null && !searchValue.equalsIgnoreCase("")) {
-            //String number=Math.sqrt(Double.valueOf(searchValue));
+            setGridNumber(Integer.parseInt(searchValue));
+            /*String number=Math.sqrt(Double.valueOf(searchValue));
 
             gridNumber = Integer.parseInt(String.valueOf(Math.sqrt(Double.valueOf(searchValue))));
             if (gridNumber < 0) {
 
-            }
+            }*/
         }
     }
 }

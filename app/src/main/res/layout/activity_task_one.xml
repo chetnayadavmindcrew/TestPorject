@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
     tools:context=".firsttask.TaskOneActivity">
     <data>
         <variable
@@ -9,6 +11,7 @@
     </data>
 
     <LinearLayout
+        android:background="@color/light_gray"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -34,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:onClick="@{()->taskOneViewModel.clickButton()}"
-                android:text="Submit" />
+                android:text="Submit"
+                bind:gridNumber="@{taskOneViewModel.gridNumber}" />
         </RelativeLayout>
 
         <RelativeLayout
