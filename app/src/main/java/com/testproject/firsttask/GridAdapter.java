@@ -64,11 +64,10 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.MyViewHolder> 
                             break;
                         }
                     }
-
                 }
                 notifyDataSetChanged();
-
-                callBackClick.buttonClick(gridDataModel);
+                if (gridDataModelList.get(number).getColor() == Color.BLUE)
+                    callBackClick.buttonClick(gridDataModel);
             }
         });
     }
