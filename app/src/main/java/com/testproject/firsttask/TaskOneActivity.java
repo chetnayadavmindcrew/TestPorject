@@ -39,8 +39,16 @@ public class TaskOneActivity extends AppCompatActivity implements CallBackClick 
 
     @BindingAdapter({"gridNumber"})
     public static void setData(View view, int numberofColum) {
-        if (numberofColum > 0) {
-            recyclerView.setLayoutManager(new GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL,false));
+        String number = String.valueOf(Math.sqrt((double) numberofColum));
+        int numCol;
+        if (number != null && number.contains(".0")) {
+            String str = number.replace(".0", "");
+            numCol = Integer.parseInt(str);
+        } else {
+            numCol = 0;
+        }
+        if (numberofColum > 0 && numCol > 0) {
+            recyclerView.setLayoutManager(new GridLayoutManager(context, numCol, LinearLayoutManager.VERTICAL, false));
             List<GridDataModel> gridDataModelList = new ArrayList<>();
             for (int i = 0; i < numberofColum; i++) {
                 gridDataModelList.add(new GridDataModel(Color.WHITE));

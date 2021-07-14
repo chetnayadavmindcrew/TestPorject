@@ -32,13 +32,7 @@ public class TaskOneViewModel extends BaseObservable {
 
     public void clickButton() {
         if (searchValue != null && !searchValue.equalsIgnoreCase("")) {
-            String number = String.valueOf(Math.sqrt(Double.valueOf(searchValue)));
-            if (number != null && number.contains(".0")) {
-                String[] str = number.split("\\.");
-                setGridNumber(Integer.parseInt(str[0]));
-            } else {
-                setGridNumber(0);
-            }
+            setGridNumber(Integer.parseInt(searchValue));
         }
     }
 
