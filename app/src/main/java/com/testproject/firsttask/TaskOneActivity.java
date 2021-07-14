@@ -4,11 +4,13 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.testproject.R;
@@ -28,31 +30,25 @@ public class TaskOneActivity extends AppCompatActivity implements CallBackClick 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_one);
-        recyclerView = findViewById(R.id.recycler_view);
         ActivityTaskOneBinding activityTaskOneBinding = DataBindingUtil.setContentView(this, R.layout.activity_task_one);
         activityTaskOneBinding.setTaskOneViewModel(new TaskOneViewModel());
+        recyclerView = activityTaskOneBinding.recyclerView;
         context = this;
         callBackClick = this;
-
-        recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-        List<GridDataModel> gridDataModelList = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            gridDataModelList.add(new GridDataModel(Color.WHITE));
-        }
-        gridAdapter = new GridAdapter(context, gridDataModelList, callBackClick);
-        recyclerView.setAdapter(gridAdapter);
     }
 
     @BindingAdapter({"gridNumber"})
     public static void setData(View view, int numberofColum) {
         if (numberofColum > 0) {
-            recyclerView.setLayoutManager(new GridLayoutManager(context, numberofColum));
+            recyclerView.setLayoutManager(new GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL,false));
             List<GridDataModel> gridDataModelList = new ArrayList<>();
             for (int i = 0; i < numberofColum; i++) {
                 gridDataModelList.add(new GridDataModel(Color.WHITE));
             }
             gridAdapter = new GridAdapter(context, gridDataModelList, callBackClick);
             recyclerView.setAdapter(gridAdapter);
+        } else {
+            Toast.makeText(context, "Not an perfect square root", Toast.LENGTH_SHORT).show();
         }
     }
 

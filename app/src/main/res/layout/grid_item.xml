@@ -4,6 +4,7 @@
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatButton
+        android:layout_margin="10dp"
         android:clickable="false"
         android:id="@+id/color_button"
         android:layout_width="100dp"

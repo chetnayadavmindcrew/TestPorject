@@ -1,7 +1,5 @@
 package com.testproject.firsttask;
 
-import android.widget.Toast;
-
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
@@ -34,13 +32,17 @@ public class TaskOneViewModel extends BaseObservable {
 
     public void clickButton() {
         if (searchValue != null && !searchValue.equalsIgnoreCase("")) {
-            setGridNumber(Integer.parseInt(searchValue));
-            /*String number=Math.sqrt(Double.valueOf(searchValue));
-
-            gridNumber = Integer.parseInt(String.valueOf(Math.sqrt(Double.valueOf(searchValue))));
-            if (gridNumber < 0) {
-
-            }*/
+            String number = String.valueOf(Math.sqrt(Double.valueOf(searchValue)));
+            if (number != null && number.contains(".0")) {
+                String[] str = number.split("\\.");
+                setGridNumber(Integer.parseInt(str[0]));
+            } else {
+                setGridNumber(0);
+            }
         }
+    }
+
+    public static void setMyAdapter(GridAdapter gridAdapter) {
+
     }
 }
