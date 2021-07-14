@@ -25,6 +25,7 @@ public class TaskOneActivity extends AppCompatActivity implements CallBackClick 
     static GridAdapter gridAdapter;
     static Context context;
     static CallBackClick callBackClick;
+    static List<GridDataModel> gridDataModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class TaskOneActivity extends AppCompatActivity implements CallBackClick 
         }
         if (numberofColum > 0 && numCol > 0) {
             recyclerView.setLayoutManager(new GridLayoutManager(context, numCol, LinearLayoutManager.VERTICAL, false));
-            List<GridDataModel> gridDataModelList = new ArrayList<>();
+            gridDataModelList = new ArrayList<>();
             for (int i = 0; i < numberofColum; i++) {
                 gridDataModelList.add(new GridDataModel(Color.WHITE));
             }
@@ -62,8 +63,7 @@ public class TaskOneActivity extends AppCompatActivity implements CallBackClick 
 
     @Override
     public void buttonClick(GridDataModel gridDataModel) {
-
-        //gridAdapter = new GridAdapter(this, gridDataModelList, this);
-        recyclerView.setAdapter(gridAdapter);
+        /*gridAdapter = new GridAdapter(context, gridDataModelList, callBackClick);
+        recyclerView.setAdapter(gridAdapter);*/
     }
 }
