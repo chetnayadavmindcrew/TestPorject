@@ -72,4 +72,8 @@ public class TaskOneActivity extends AppCompatActivity implements CallBackClick 
                 .setPositiveButton("OK", (dialogInterface, i) -> dialogInterface.dismiss());
         alert.show();
     }
+    
+    pubic void toast(){
+    Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+    }
 }
