@@ -17,6 +17,6 @@ public class ExampleUnitTest {
     
     @Test
     public void show_toast(){
-        assertEquals(4, 2 - 2);
+        assertEquals(0, 2 - 2);
     }
 }
