@@ -23,4 +23,7 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.testproject", appContext.getPackageName());
     }
+    
+    @get: Rule()
+    val activity= ActivityScenarioRule(TaskOneActivity::class.java)
 }
