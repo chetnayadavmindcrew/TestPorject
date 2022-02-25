@@ -73,7 +73,7 @@ public class TaskOneActivity extends AppCompatActivity implements CallBackClick 
         alert.show();
     }
     
-    pubic void toast(){
+    public void toast(){
     Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
     }
 }
