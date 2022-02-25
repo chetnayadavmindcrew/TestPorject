@@ -17,6 +17,6 @@ public class ExampleUnitTest {
     
     @Test
     public void show_toast(){
-        
+        TaskOneActivity.toast();
     }
 }
